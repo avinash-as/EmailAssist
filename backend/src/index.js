@@ -44,9 +44,9 @@ app.use(notFound);
 app.use(errorHandler);
 
 const PORT = env.PORT;
+const initPromise = (process.env.NODE_ENV === 'test') ? Promise.resolve() : connect();
+app.use(async (req,res,next)=>{ try { await initPromise; next(); } catch(e){ next(e); } });
 if (require.main === module) {
-  connect().then(()=> app.listen(PORT, ()=> console.log('Server on '+PORT))).catch(e=>{console.error(e); process.exit(1);});
-} else {
-  if (process.env.NODE_ENV !== 'test') connect().catch(e=>console.error('Mongo connect error', e));
+  initPromise.then(()=> app.listen(PORT, ()=> console.log('Server on '+PORT))).catch(e=>{console.error(e); process.exit(1);});
 }
 module.exports = app;
