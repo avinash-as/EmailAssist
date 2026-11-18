@@ -30,4 +30,9 @@ if (fs.existsSync(distPath)) {
 }
 
 const PORT = process.env.PORT || 5000;
-connect().then(()=> app.listen(PORT, ()=> console.log('Server on '+PORT))).catch(e=>{console.error(e); process.exit(1);});
+if (require.main === module) {
+  connect().then(()=> app.listen(PORT, ()=> console.log('Server on '+PORT))).catch(e=>{console.error(e); process.exit(1);});
+} else {
+  connect().catch(e=>console.error('Mongo connect error', e));
+}
+module.exports = app;
