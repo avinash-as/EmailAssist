@@ -5,6 +5,10 @@ const schema = new mongoose.Schema({
   email: { type: String, required:true },
   status: { type: String, enum:['connected','syncing','error','disconnected'], default:'connected' },
   lastSync: { type: Date, default: Date.now },
+  accessToken: String,
+  refreshToken: String,
+  tokenExpiry: Date,
+  scope: String,
   createdAt: { type: Date, default: Date.now }
 });
 module.exports = mongoose.model('EmailAccount', schema);

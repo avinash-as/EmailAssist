@@ -11,7 +11,7 @@ const statCards = (s)=>[
   {label:'Important', value:s.important, icon:Star, color:'text-[#fbbf24]'},
   {label:'Action required', value:s.actionRequired, icon:AlertCircle, color:'text-[#f87171]'},
   {label:'Waiting (assistant)', value:s.assistantReply, icon:Clock, color:'text-[#a5adff]'},
-  {label:'Client attention', value:s.clientReply, icon:Users, color:'text-orange-500'},
+  {label:'Client attention', value:s.clientReply, icon:Users, color:'text-[#fb923c]'},
   {label:'Meetings', value:s.meetings, icon:Calendar, color:'text-[#4ade80]'},
   {label:'No reply needed', value:s.noReply, icon:Mail, color:'text-[#6b6f76]'},
 ];
