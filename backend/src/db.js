@@ -1,7 +1,4 @@
-const mongoose = require('mongoose');
 async function connect() {
-  const uri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/personal_assist';
-  await mongoose.connect(uri);
-  console.log('MongoDB connected');
+  console.log('Using in-memory data store (prototype)');
 }
 module.exports = { connect };
