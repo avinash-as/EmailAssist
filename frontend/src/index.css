@@ -2,5 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{--brand:#4f46e5;}
-body{font-family:Inter,system-ui,sans-serif;}
+:root{--brand:#5e6ad2;--bg:#08090a;--surface:#111214;--border:#26272b;--text:#f7f8f8;--muted:#8a8f98;}
+html,body{background:#08090a;color:#f7f8f8;}
+body{font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+
+

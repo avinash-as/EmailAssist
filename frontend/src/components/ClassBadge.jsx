@@ -7,8 +7,9 @@ export default function ClassBadge({classification, needsReview}){
   const m = map[classification] || map.no_reply;
   return (
     <span className="inline-flex items-center gap-1">
-      <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${m.color==='blue'?'bg-blue-100 text-blue-700':m.color==='amber'?'bg-amber-100 text-amber-700':'bg-slate-100 text-slate-600'}`}>{m.label}</span>
-      {needsReview && <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-700">Needs review</span>}
+      <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${m.color==='blue'?'bg-[#1b2433] text-[#60a5fa]':m.color==='amber'?'bg-[#2a2418] text-[#fbbf24]':'bg-[#1a1b1e] text-[#b4b4b4]'}`}>{m.label}</span>
+      {needsReview && <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-[#2a1b1b] text-[#f87171]">Needs review</span>}
     </span>
   );
 }
+

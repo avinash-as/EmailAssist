@@ -12,23 +12,25 @@ export default function Signup(){
     finally{setLoading(false);}
   };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-[#08090a] px-4">
       <Card className="w-full max-w-md p-8">
-        <h1 className="text-2xl font-bold text-slate-800 mb-2">Create account</h1>
-        <p className="text-sm text-slate-500 mb-6">Join PA Mail</p>
-        {err && <div className="mb-4 p-3 bg-red-50 text-red-700 text-sm rounded-lg">{err}</div>}
+        <h1 className="text-2xl font-bold text-[#f7f8f8] mb-2">Create account</h1>
+        <p className="text-sm text-[#8a8f98] mb-6">Join EmailAssist</p>
+        {err && <div className="mb-4 p-3 bg-[#2a1b1b] text-[#f87171] text-sm rounded-lg">{err}</div>}
         <form onSubmit={submit} className="space-y-4">
           <Input placeholder="Full name" value={name} onChange={e=>setName(e.target.value)} required/>
           <Input placeholder="Email" type="email" value={email} onChange={e=>setEmail(e.target.value)} required/>
           <Input placeholder="Password" type="password" value={password} onChange={e=>setPassword(e.target.value)} required/>
           <div className="flex gap-3">
-            <label className={`flex-1 border rounded-lg p-3 cursor-pointer text-sm ${role==='assistant'?'border-indigo-500 bg-indigo-50':'border-slate-300'}`}><input type="radio" className="mr-2" checked={role==='assistant'} onChange={()=>setRole('assistant')}/>Assistant</label>
-            <label className={`flex-1 border rounded-lg p-3 cursor-pointer text-sm ${role==='client'?'border-indigo-500 bg-indigo-50':'border-slate-300'}`}><input type="radio" className="mr-2" checked={role==='client'} onChange={()=>setRole('client')}/>Client</label>
+            <label className={`flex-1 border rounded-lg p-3 cursor-pointer text-sm ${role==='assistant'?'border-[#5e6ad2] bg-[#1e1f2e]':'border-[#2a2b2f]'}`}><input type="radio" className="mr-2" checked={role==='assistant'} onChange={()=>setRole('assistant')}/>Assistant</label>
+            <label className={`flex-1 border rounded-lg p-3 cursor-pointer text-sm ${role==='client'?'border-[#5e6ad2] bg-[#1e1f2e]':'border-[#2a2b2f]'}`}><input type="radio" className="mr-2" checked={role==='client'} onChange={()=>setRole('client')}/>Client</label>
           </div>
           <Button className="w-full" disabled={loading}>{loading?'Creating...':'Sign up'}</Button>
         </form>
-        <p className="text-sm text-slate-500 mt-4">Have account? <Link to="/login" className="text-indigo-600">Log in</Link></p>
+        <p className="text-sm text-[#8a8f98] mt-4">Have account? <Link to="/login" className="text-[#a5adff]">Log in</Link></p>
       </Card>
     </div>
   );
 }
+
+

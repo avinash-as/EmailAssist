@@ -12,18 +12,19 @@ export default function Login(){
     finally{setLoading(false);}
   };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-[#08090a] px-4">
       <Card className="w-full max-w-md p-8">
-        <h1 className="text-2xl font-bold text-slate-800 mb-2">Welcome back</h1>
-        <p className="text-sm text-slate-500 mb-6">Log in to your account</p>
-        {err && <div className="mb-4 p-3 bg-red-50 text-red-700 text-sm rounded-lg">{err}</div>}
+        <h1 className="text-2xl font-bold text-[#f7f8f8] mb-2">Welcome back</h1>
+        <p className="text-sm text-[#8a8f98] mb-6">Log in to your account</p>
+        {err && <div className="mb-4 p-3 bg-[#2a1b1b] text-[#f87171] text-sm rounded-lg">{err}</div>}
         <form onSubmit={submit} className="space-y-4">
           <Input placeholder="Email" type="email" value={email} onChange={e=>setEmail(e.target.value)} required/>
           <Input placeholder="Password" type="password" value={password} onChange={e=>setPassword(e.target.value)} required/>
           <Button className="w-full" disabled={loading}>{loading?'Logging in...':'Log in'}</Button>
         </form>
-        <p className="text-sm text-slate-500 mt-4">No account? <Link to="/signup" className="text-indigo-600">Sign up</Link></p>
+        <p className="text-sm text-[#8a8f98] mt-4">No account? <Link to="/signup" className="text-[#a5adff]">Sign up</Link></p>
       </Card>
     </div>
   );
 }
+

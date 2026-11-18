@@ -13,3 +13,4 @@ export function AuthProvider({children}){
   return <Ctx.Provider value={{user,loading,login,signup,logout}}>{children}</Ctx.Provider>;
 }
 export const useAuth = ()=> useContext(Ctx);
+

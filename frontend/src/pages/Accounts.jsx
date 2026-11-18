@@ -13,13 +13,13 @@ export default function Accounts(){
   if(loading) return <Spinner/>;
   return (
     <div className="space-y-6 max-w-3xl">
-      <h1 className="text-2xl font-bold text-slate-800">Connected accounts</h1>
-      {accounts.length===0 && <Card className="p-6 text-center text-slate-500">No accounts connected. <a href="/connect" className="text-indigo-600">Connect one</a></Card>}
+      <h1 className="text-2xl font-bold text-[#f7f8f8]">Connected accounts</h1>
+      {accounts.length===0 && <Card className="p-6 text-center text-[#8a8f98]">No accounts connected. <a href="/connect" className="text-[#a5adff]">Connect one</a></Card>}
       {accounts.map(a=>(
         <Card key={a._id} className="p-5 flex items-center justify-between">
           <div>
-            <div className="font-semibold text-slate-800">{a.email}</div>
-            <div className="text-xs text-slate-500 mt-1">{a.provider} · {a.status} · last sync {a.lastSync?new Date(a.lastSync).toLocaleString():'never'}</div>
+            <div className="font-semibold text-[#f7f8f8]">{a.email}</div>
+            <div className="text-xs text-[#8a8f98] mt-1">{a.provider} · {a.status} · last sync {a.lastSync?new Date(a.lastSync).toLocaleString():'never'}</div>
           </div>
           <div className="flex gap-2">
             <Button variant="secondary" onClick={()=>sync(a._id)}><RefreshCw size={14}/></Button>
@@ -31,3 +31,4 @@ export default function Accounts(){
     </div>
   );
 }
+

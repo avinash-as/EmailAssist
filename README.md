@@ -1,4 +1,4 @@
-# PA Mail – AI-Powered Email Management Dashboard (Prototype)
+# EmailAssist – AI-Powered Email Management Dashboard (Prototype)
 
 ## Stack
 - Frontend: React (Vite) + Tailwind CSS
