@@ -32,14 +32,17 @@ export default function Signup(){
           <Input placeholder="Email" type="email" value={email} onChange={e=>setEmail(e.target.value)} required/>
           <Input placeholder="Password" type="password" value={password} onChange={e=>setPassword(e.target.value)} required/>
           <div className="flex gap-3">
-            <label className={`flex-1 border rounded-md p-3 cursor-pointer text-sm transition ${role==='assistant'?'border-[#5e6ad2] bg-[#1e1f2e] text-[#a5adff]':'border-[var(--border)] text-[var(--muted)] hover:border-[#3a3b4f]'}`}><input type="radio" className="mr-2 accent-[#5e6ad2]" checked={role==='assistant'} onChange={()=>setRole('assistant')}/>Assistant</label>
-            <label className={`flex-1 border rounded-md p-3 cursor-pointer text-sm transition ${role==='client'?'border-[#5e6ad2] bg-[#1e1f2e] text-[#a5adff]':'border-[var(--border)] text-[var(--muted)] hover:border-[#3a3b4f]'}`}><input type="radio" className="mr-2 accent-[#5e6ad2]" checked={role==='client'} onChange={()=>setRole('client')}/>Client</label>
+            <label className={`flex-1 border rounded-md p-3 cursor-pointer text-sm transition ${role==='assistant'?'border-[#5e6ad2] bg-[var(--accent-soft)] text-[var(--accent-text)]':'border-[var(--border)] text-[var(--muted)] hover:border-[#3a3b4f]'}`}><input type="radio" className="mr-2 accent-[#5e6ad2]" checked={role==='assistant'} onChange={()=>setRole('assistant')}/>Assistant</label>
+            <label className={`flex-1 border rounded-md p-3 cursor-pointer text-sm transition ${role==='client'?'border-[#5e6ad2] bg-[var(--accent-soft)] text-[var(--accent-text)]':'border-[var(--border)] text-[var(--muted)] hover:border-[#3a3b4f]'}`}><input type="radio" className="mr-2 accent-[#5e6ad2]" checked={role==='client'} onChange={()=>setRole('client')}/>Client</label>
           </div>
           {err && <p className="text-sm text-[#f87171]">{err}</p>}
           <Button className="w-full" disabled={loading}>{loading?'Creating...':'Sign up'}</Button>
         </form>
-        <p className="text-sm text-[var(--muted)] mt-6 text-center">Have account? <Link to="/login" className="text-[#a5adff] hover:underline">Log in</Link></p>
+        <p className="text-sm text-[var(--muted)] mt-6 text-center">Have account? <Link to="/login" className="text-[var(--accent-text)] hover:underline">Log in</Link></p>
       </Card>
     </div>
   );
 }
+
+
+

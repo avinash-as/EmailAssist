@@ -43,14 +43,14 @@ export default function Layout({children}){
         </div>
         <nav className="p-3 space-y-0.5">
           {nav.map(n=>(
-            <Link key={n.to} to={n.to} onClick={()=>setOpen(false)} className={`flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors ${loc.pathname===n.to?'bg-[#1e1f2e] text-[#a5adff]':'text-[var(--muted)] hover:text-[var(--text)] hover:bg-[#161719]'}`}>
+            <Link key={n.to} to={n.to} onClick={()=>setOpen(false)} className={`flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors ${loc.pathname===n.to?'bg-[var(--accent-soft)] text-[var(--accent-text)]':'text-[var(--muted)] hover:text-[var(--text)] hover:bg-[var(--surface-2)]'}`}>
               <n.icon size={17}/>{n.label}
             </Link>
           ))}
         </nav>
         <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-[var(--border)]">
           <div className="flex items-center gap-2 mb-3">
-            <div className="w-7 h-7 rounded-full bg-[#1e1f2e] flex items-center justify-center text-xs font-medium text-[#a5adff]">{(user?.name||'U')[0].toUpperCase()}</div>
+            <div className="w-7 h-7 rounded-full bg-[var(--accent-soft)] flex items-center justify-center text-xs font-medium text-[var(--accent-text)]">{(user?.name||'U')[0].toUpperCase()}</div>
             <div className="text-xs text-[var(--muted)] truncate">{user?.name}</div>
           </div>
           <button onClick={()=>{logout();nav2('/');}} className="flex items-center gap-2 text-sm text-[var(--muted)] hover:text-[#f87171] transition-colors"><LogOut size={15}/>Sign out</button>
@@ -68,3 +68,6 @@ export default function Layout({children}){
     </div>
   );
 }
+
+
+

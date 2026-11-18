@@ -32,7 +32,7 @@ export default function ThreadDetail(){
 
   return (
     <div className="space-y-6">
-      <button onClick={()=>nav(-1)} className="flex items-center gap-2 text-sm text-[var(--muted)] hover:text-[#a5adff]"><ArrowLeft size={16}/>Back</button>
+      <button onClick={()=>nav(-1)} className="flex items-center gap-2 text-sm text-[var(--muted)] hover:text-[var(--accent-text)]"><ArrowLeft size={16}/>Back</button>
       <div className="flex flex-col md:flex-row gap-6">
         {/* conversation */}
         <div className="flex-1 space-y-4">
@@ -49,7 +49,7 @@ export default function ThreadDetail(){
             </div>
             <div className="space-y-4">
               {thread.messages?.map((m,i)=>(
-                <div key={i} className={`p-4 rounded-xl ${m.from?.includes('assistant')||m.from?.includes('pa.com')?'bg-[#1e1f2e]':'bg-[var(--bg)]'}`}>
+                <div key={i} className={`p-4 rounded-xl ${m.from?.includes('assistant')||m.from?.includes('pa.com')?'bg-[var(--accent-soft)]':'bg-[var(--bg)]'}`}>
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-sm font-semibold text-[var(--text)]">{m.from}</span>
                     <span className="text-xs text-[var(--muted)]">{m.date?new Date(m.date).toLocaleString():''}</span>
@@ -118,5 +118,8 @@ export default function ThreadDetail(){
     </div>
   );
 }
+
+
+
 
 

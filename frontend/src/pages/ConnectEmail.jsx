@@ -5,7 +5,7 @@ import { Button, Card, Spinner, Input } from '../components/ui';
 import { Mail, CheckCircle2 } from 'lucide-react';
 
 const providers = [
-  {id:'gmail', name:'Gmail', color:'bg-[#2a1b1b]0'},
+  {id:'gmail', name:'Gmail', color:'bg-[#dc2626]'},
   {id:'outlook', name:'Outlook / Microsoft', color:'bg-[#2563eb]'},
 ];
 
@@ -54,7 +54,7 @@ export default function ConnectEmail(){
         <Input placeholder="Email address (optional)" value={email} onChange={e=>setEmail(e.target.value)} className="mb-6"/>
         <div className="space-y-3">
           {providers.map(p=>(
-            <button key={p.id} onClick={()=>connect(p)} className="w-full flex items-center gap-4 p-4 border border-[var(--border)] rounded-xl hover:border-[#5e6ad2] hover:bg-[#1e1f2e] transition">
+            <button key={p.id} onClick={()=>connect(p)} className="w-full flex items-center gap-4 p-4 border border-[var(--border)] rounded-xl hover:border-[#5e6ad2] hover:bg-[var(--accent-soft)] transition">
               <span className={`w-10 h-10 rounded-lg ${p.color} text-white flex items-center justify-center font-bold`}>{p.name[0]}</span>
               <span className="font-medium text-[var(--text)]">Connect {p.name}</span>
             </button>
@@ -65,6 +65,9 @@ export default function ConnectEmail(){
     </div>
   );
 }
+
+
+
 
 
 

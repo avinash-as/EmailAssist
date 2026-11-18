@@ -10,7 +10,7 @@ const statCards = (s)=>[
   {label:'Unread', value:s.unread, icon:MailOpen, color:'text-[#60a5fa]'},
   {label:'Important', value:s.important, icon:Star, color:'text-[#fbbf24]'},
   {label:'Action required', value:s.actionRequired, icon:AlertCircle, color:'text-[#f87171]'},
-  {label:'Waiting (assistant)', value:s.assistantReply, icon:Clock, color:'text-[#a5adff]'},
+  {label:'Waiting (assistant)', value:s.assistantReply, icon:Clock, color:'text-[var(--accent-text)]'},
   {label:'Client attention', value:s.clientReply, icon:Users, color:'text-[#fb923c]'},
   {label:'Meetings', value:s.meetings, icon:Calendar, color:'text-[#4ade80]'},
   {label:'No reply needed', value:s.noReply, icon:Mail, color:'text-[var(--muted)]'},
@@ -50,7 +50,7 @@ export default function Dashboard(){
         <Card className="p-5">
           <div className="flex items-center justify-between mb-4">
             <h2 className="font-semibold text-[var(--text)]">Recent conversations</h2>
-            <Link to="/inbox" className="text-sm text-[#a5adff] flex items-center gap-1">View all <ArrowRight size={14}/></Link>
+            <Link to="/inbox" className="text-sm text-[var(--accent-text)] flex items-center gap-1">View all <ArrowRight size={14}/></Link>
           </div>
           <div className="space-y-3">
             {threads.map(t=>(
@@ -84,5 +84,8 @@ export default function Dashboard(){
     </div>
   );
 }
+
+
+
 
 

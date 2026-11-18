@@ -18,7 +18,7 @@ export default function Chat(){
       <Card className="p-4 h-[60vh] overflow-y-auto space-y-3">
         {msgs.map((m,i)=>(
           <div key={i} className={`flex ${m.role==='user'?'justify-end':'justify-start'}`}>
-            <div className={`max-w-[80%] px-4 py-2 rounded-2xl text-sm ${m.role==='user'?'bg-[#5e6ad2] text-white':'bg-[#1a1b1e] text-[var(--text)]'}`}>{m.text}</div>
+            <div className={`max-w-[80%] px-4 py-2 rounded-2xl text-sm ${m.role==='user'?'bg-[#5e6ad2] text-white':'bg-[var(--surface-2)] text-[var(--text)]'}`}>{m.text}</div>
           </div>
         ))}
         {loading && <div className="text-sm text-[var(--muted)]">Thinking...</div>}
@@ -31,5 +31,8 @@ export default function Chat(){
     </div>
   );
 }
+
+
+
 
 

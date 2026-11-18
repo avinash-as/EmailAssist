@@ -11,3 +11,5 @@ export function ThemeProvider({children}){
   return <Ctx.Provider value={{theme,toggle}}>{children}</Ctx.Provider>;
 }
 export const useTheme = ()=> useContext(Ctx);
+
+

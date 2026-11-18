@@ -31,8 +31,11 @@ export default function Login(){
           {err && <p className="text-sm text-[#f87171]">{err}</p>}
           <Button className="w-full" disabled={loading}>{loading?'Logging in...':'Log in'}</Button>
         </form>
-        <p className="text-sm text-[var(--muted)] mt-6 text-center">No account? <Link to="/signup" className="text-[#a5adff] hover:underline">Sign up</Link></p>
+        <p className="text-sm text-[var(--muted)] mt-6 text-center">No account? <Link to="/signup" className="text-[var(--accent-text)] hover:underline">Sign up</Link></p>
       </Card>
     </div>
   );
 }
+
+
+

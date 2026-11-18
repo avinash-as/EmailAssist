@@ -41,7 +41,7 @@ export default function Accounts(){
         </div>
       </Card>
 
-      {accounts.length===0 && <Card className="p-6 text-center text-[var(--muted)]">No simulated accounts connected. <a href="/connect" className="text-[#a5adff]">Connect one</a></Card>}
+      {accounts.length===0 && <Card className="p-6 text-center text-[var(--muted)]">No simulated accounts connected. <a href="/connect" className="text-[var(--accent-text)]">Connect one</a></Card>}
       {accounts.map(a=>(
         <Card key={a._id} className="p-5 flex items-center justify-between">
           <div>
@@ -58,3 +58,6 @@ export default function Accounts(){
     </div>
   );
 }
+
+
+

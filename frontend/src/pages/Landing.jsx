@@ -13,7 +13,7 @@ export default function Landing(){
         </div>
       </header>
       <section className="max-w-6xl mx-auto px-6 pt-20 pb-16 text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1e1f2e] border border-[#3a3b4f] text-xs text-[#a5adff] mb-6">AI-powered email management</div>
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--accent-soft)] border border-[#3a3b4f] text-xs text-[var(--accent-text)] mb-6">AI-powered email management</div>
         <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight">Email management<br/>for personal assistants</h1>
         <p className="mt-6 text-lg text-[var(--muted)] max-w-2xl mx-auto">Connect your clients' inboxes, let AI decide who needs to reply, and surface only what matters. Assistants get full control; clients get a clean, minimal view.</p>
         <div className="mt-8 flex justify-center gap-3">
@@ -28,7 +28,7 @@ export default function Landing(){
           {icon:Users,title:'Client view',desc:'Clients see only emails needing their attention, with AI summaries and one-tap handoff.'},
         ].map((f,i)=>(
           <div key={i} className="bg-[var(--surface)] rounded-lg p-6 border border-[var(--border)] hover:border-[#3a3b4f] transition-colors">
-            <div className="w-10 h-10 rounded-md bg-[#1e1f2e] flex items-center justify-center mb-4"><f.icon className="text-[#a5adff]" size={20}/></div>
+            <div className="w-10 h-10 rounded-md bg-[var(--accent-soft)] flex items-center justify-center mb-4"><f.icon className="text-[var(--accent-text)]" size={20}/></div>
             <h3 className="font-semibold text-[var(--text)]">{f.title}</h3>
             <p className="text-sm text-[var(--muted)] mt-2 leading-relaxed">{f.desc}</p>
           </div>
@@ -37,3 +37,6 @@ export default function Landing(){
     </div>
   );
 }
+
+
+

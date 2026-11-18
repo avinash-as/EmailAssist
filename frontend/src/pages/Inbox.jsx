@@ -46,7 +46,7 @@ export default function Inbox(){
           <div className="text-xs font-semibold text-[var(--muted)] uppercase mb-2 px-2">Segments</div>
           <div className="space-y-1">
             {segments.map(s=>(
-              <button key={s.id} onClick={()=>setSegment(s.id)} className={`w-full text-left px-3 py-2 rounded-lg text-sm ${segment===s.id?'bg-[#1e1f2e] text-[#a5adff] font-medium':'text-[var(--muted)] hover:bg-[var(--bg)]'}`}>{s.label}</button>
+              <button key={s.id} onClick={()=>setSegment(s.id)} className={`w-full text-left px-3 py-2 rounded-lg text-sm ${segment===s.id?'bg-[var(--accent-soft)] text-[var(--accent-text)] font-medium':'text-[var(--muted)] hover:bg-[var(--bg)]'}`}>{s.label}</button>
             ))}
           </div>
         </Card>
@@ -92,5 +92,8 @@ export default function Inbox(){
     </div>
   );
 }
+
+
+
 
 
