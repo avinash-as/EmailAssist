@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import api from '../api';
 import { Card, Spinner, Button } from '../components/ui';
 import ClassBadge from '../components/ClassBadge';
-import { Link } from 'react-router-dom';
-import { Mail, MailOpen, Star, AlertCircle, Clock, Calendar, Users, ArrowRight } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Mail, MailOpen, Star, AlertCircle, Clock, Calendar, Users, ArrowRight, Database } from 'lucide-react';
 
 const statCards = (s)=>[
   {label:'Total emails', value:s.total, icon:Mail, color:'text-[var(--muted)]'},
@@ -20,6 +20,7 @@ export default function Dashboard(){
   const [stats,setStats]=useState(null);
   const [threads,setThreads]=useState([]);
   const [loading,setLoading]=useState(true);
+  const loadDemo=async()=>{ try { await api.post('/seed/demo'); window.location.reload(); } catch(e){ alert(e.response?.data?.error||'Failed'); } };
   useEffect(()=>{ (async()=>{
     try {
       const [s,t] = await Promise.all([api.get('/threads/stats'), api.get('/threads?limit=8')]);
@@ -29,9 +30,12 @@ export default function Dashboard(){
   if(loading) return <Spinner/>;
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold text-[var(--text)]">Dashboard</h1>
-        <p className="text-sm text-[var(--muted)]">Overview of your inbox at a glance</p>
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-2xl font-bold text-[var(--text)]">Dashboard</h1>
+          <p className="text-sm text-[var(--muted)]">Overview of your inbox at a glance</p>
+        </div>
+        {threads.length===0 && <Button onClick={loadDemo}><Database size={16} className="mr-1"/>Load demo data</Button>}
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {statCards(stats).map((c,i)=>(
