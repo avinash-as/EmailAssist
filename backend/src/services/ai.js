@@ -170,4 +170,4 @@ async function chatAssistant(question, context){
   return r || 'I could not generate a response.';
 }
 
-module.exports = { classifyThread, categorizeEmail, summarizeEmail, generateReply, rewriteEmail, generateSubject, detectPriority, chatAssistant, CATEGORIES };
+module.exports = { classifyThread, categorizeEmail, summarizeEmail, generateReply, rewriteEmail, generateSubject, detectPriority, chatAssistant, CATEGORIES, aiComplete };

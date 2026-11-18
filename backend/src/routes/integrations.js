@@ -83,4 +83,23 @@ router.post('/gmail/sync', auth, async (req,res)=>{
   }
 });
 
+router.post('/gmail/send', auth, async (req,res)=>{
+  const { to, subject, body } = req.body;
+  const acc = await EmailAccount.findOne({ userId: req.user.id, provider:'gmail' });
+  if(!acc || !acc.accessToken) return res.status(400).json({ error:'Gmail not connected' });
+  try {
+    const client = oauthClient();
+    client.setCredentials({ access_token: acc.accessToken, refresh_token: acc.refreshToken, expiry_date: acc.tokenExpiry ? acc.tokenExpiry.getTime() : undefined });
+    const gmail = google.gmail({ version:'v1', auth: client });
+    const raw = Buffer.from(
+      `To: ${to}\r\nSubject: ${subject}\r\nContent-Type: text/plain; charset=utf-8\r\n\r\n${body}`
+    ).toString('base64').replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+    const sent = await gmail.users.messages.send({ userId:'me', requestBody: { raw } });
+    res.json({ ok:true, id: sent.data.id });
+  } catch(e){
+    console.error(e);
+    res.status(500).json({ error: e.message });
+  }
+});
+
 module.exports = router;

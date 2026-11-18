@@ -148,4 +148,23 @@ router.post('/client/:id/handle', auth, async (req,res)=>{
   res.json({thread:t});
 });
 
+router.post('/compose', auth, async (req,res)=>{
+  try {
+    const { to, subject, body } = req.body;
+    if(!to || !subject || !body) return res.status(400).json({error:'Missing fields'});
+    const t = await Thread.create({
+      userId: req.user.id,
+      subject,
+      participants: [to, req.user.email],
+      messages: [{ from: req.user.email, to, body, date: new Date(), read: true }],
+      unreadCount: 0,
+      lastMessageAt: new Date(),
+      classification: 'no_reply',
+      segment: 'general',
+      summary: body.slice(0,200),
+    });
+    res.json({ thread: t });
+  } catch(e){ res.status(500).json({error:e.message}); }
+});
+
 module.exports = router;

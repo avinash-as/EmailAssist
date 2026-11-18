@@ -17,15 +17,15 @@ export default function Accounts(){
   if(loading) return <Spinner/>;
   return (
     <div className="space-y-6 max-w-3xl">
-      <h1 className="text-2xl font-bold text-[#f7f8f8]">Connected accounts</h1>
+      <h1 className="text-2xl font-bold text-[var(--text)]">Connected accounts</h1>
 
       <Card className="p-5">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-md bg-[#1b2433] flex items-center justify-center"><Mail className="text-[#60a5fa]" size={20}/></div>
             <div>
-              <div className="font-semibold text-[#f7f8f8]">Gmail</div>
-              <div className="text-xs text-[#8a8f98]">{gmail?.connected ? `${gmail.account.email} · ${gmail.account.status}` : 'Not connected'}</div>
+              <div className="font-semibold text-[var(--text)]">Gmail</div>
+              <div className="text-xs text-[var(--muted)]">{gmail?.connected ? `${gmail.account.email} · ${gmail.account.status}` : 'Not connected'}</div>
             </div>
           </div>
           <div className="flex gap-2">
@@ -41,12 +41,12 @@ export default function Accounts(){
         </div>
       </Card>
 
-      {accounts.length===0 && <Card className="p-6 text-center text-[#8a8f98]">No simulated accounts connected. <a href="/connect" className="text-[#a5adff]">Connect one</a></Card>}
+      {accounts.length===0 && <Card className="p-6 text-center text-[var(--muted)]">No simulated accounts connected. <a href="/connect" className="text-[#a5adff]">Connect one</a></Card>}
       {accounts.map(a=>(
         <Card key={a._id} className="p-5 flex items-center justify-between">
           <div>
-            <div className="font-semibold text-[#f7f8f8]">{a.email}</div>
-            <div className="text-xs text-[#8a8f98] mt-1">{a.provider} · {a.status} · last sync {a.lastSync?new Date(a.lastSync).toLocaleString():'never'}</div>
+            <div className="font-semibold text-[var(--text)]">{a.email}</div>
+            <div className="text-xs text-[var(--muted)] mt-1">{a.provider} · {a.status} · last sync {a.lastSync?new Date(a.lastSync).toLocaleString():'never'}</div>
           </div>
           <div className="flex gap-2">
             <Button variant="secondary" onClick={()=>sync(a._id)}><RefreshCw size={14}/></Button>

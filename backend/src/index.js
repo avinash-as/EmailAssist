@@ -47,6 +47,6 @@ const PORT = env.PORT;
 if (require.main === module) {
   connect().then(()=> app.listen(PORT, ()=> console.log('Server on '+PORT))).catch(e=>{console.error(e); process.exit(1);});
 } else {
-  connect().catch(e=>console.error('Mongo connect error', e));
+  if (process.env.NODE_ENV !== 'test') connect().catch(e=>console.error('Mongo connect error', e));
 }
 module.exports = app;

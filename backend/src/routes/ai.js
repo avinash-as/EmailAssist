@@ -41,6 +41,15 @@ router.post('/priority', auth, async (req,res)=>{
   res.json({ priority });
 });
 
+router.post('/nl-search', auth, async (req,res)=>{
+  const { query } = req.body;
+  const filters = await (async ()=>{
+    const r = await ai.aiComplete(`Convert this natural language email search into JSON filters with keys: segment (one of all,action_required,meetings,important), classification (assistant_reply/client_reply/no_reply or null), important (boolean), unread (boolean), search (keyword string or null). Return only JSON.\n\nQuery: ${query}`, 200);
+    try { return JSON.parse(r); } catch { return { search: query }; }
+  })();
+  res.json({ filters });
+});
+
 router.post('/chat', auth, async (req,res)=>{
   const { question, context='' } = req.body;
   const answer = await ai.chatAssistant(question, context);
